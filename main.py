@@ -1,6 +1,6 @@
-from linear_models.linear_regression import LinearRegression
-from linear_models.ridge import Ridge
-from linear_models.lasso import Lasso
+from algorithms.linear_regression import LinearRegression
+from algorithms.ridge import Ridge
+from algorithms.lasso import Lasso
 from utils.model_selection import train_test_split
 from utils.preprocessing import StandardScaler
 from utils.metrics import mean_squared_error, mean_absolute_error, root_mean_squared_error, r2_score

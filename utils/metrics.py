@@ -34,3 +34,24 @@ def f1_score(y_true, y_pred):
     recall = recall_score(y_true, y_pred)
 
     return 2 * (precision * recall) / (precision + recall)
+
+
+
+
+def confusion_matrix(y_true, y_pred):
+    classes = np.unique(np.concatenate([y_true, y_pred]))
+    n_classes = len(classes)
+
+    matrix = np.zeros((n_classes, n_classes), dtype=int)
+
+    class_to_idx = {c: i for i, c in enumerate(classes)}
+
+    for true, pred in zip(y_true, y_pred):
+        i = class_to_idx[true]
+        j = class_to_idx[pred]
+        matrix[i, j] += 1
+
+    return matrix
+
+def accuracy_score(y_true, y_pred):
+    return np.sum(y_true == y_pred) / len(y_true)
